@@ -1,5 +1,5 @@
 {
-  "name": "typescript-app",
+  "name": "charter-challenge",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -27,8 +27,15 @@
     ]
   },
   "dependencies": {
+    "bootstrap": "^4.5.3",
+    "enum": "^3.0.4",
+    "lodash-es": "^4.17.15",
+    "luxon": "^1.25.0",
     "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "react-bootstrap": "^1.4.0",
+    "react-dom": "^16.12.0",
+    "react-fetch-hook": "^1.8.3",
+    "react-hook-form": "^6.11.1"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^4.2.4",
@@ -50,6 +57,7 @@
     "eslint-plugin-standard": "^4.0.1",
     "husky": ">=1",
     "lint-staged": ">=8",
+    "react-hook-form-devtools": "^1.2.0",
     "react-scripts": "3.3.0",
     "typescript": "~3.7.2"
   },
