@@ -19,7 +19,7 @@ interface RestaurantBase {
   attire: string
 }
 
-interface Restaurant extends RestaurantBase {
+export interface Restaurant extends RestaurantBase {
   tags: string,
   genre: string
 }

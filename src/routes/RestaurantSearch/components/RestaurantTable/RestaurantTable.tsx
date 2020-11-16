@@ -1,6 +1,6 @@
-import React, { FC } from 'react'
+import React, { FC, useMemo } from 'react'
 
-import { FormattedRestaurant } from 'api'
+import { FormattedRestaurant, Restaurant } from 'api'
 import Table from 'components/Table'
 
 enum RestaurantTableHeaders {
@@ -8,7 +8,7 @@ enum RestaurantTableHeaders {
   city = 'City',
   state = 'state',
   telephone = 'Phone Number',
-  genres = 'Cuisine Types'
+  genre = 'Cuisine Types'
 }
 
 interface RestaurantTableProps {
@@ -17,10 +17,23 @@ interface RestaurantTableProps {
   error?: any
 }
 
-const RestaurantTable: FC<RestaurantTableProps> = props => {
+const useRestaurantTableData = (restaurants: FormattedRestaurant[] = []) => useMemo<Restaurant[]>(() => (
+  restaurants.map(restaurant => ({
+    ...restaurant,
+    genre: restaurant.genre.join(', '),
+    tags: restaurant.tags.join((', '))
+  }))
+), [restaurants])
+
+const RestaurantTable: FC<RestaurantTableProps> = ({ data, isLoading, error }) => {
+  const restaurantTableData = useRestaurantTableData(data)
+
   return (
     <Table
-      {...props}
+      columnWidths={[2, 2, 2, 2, 4]}
+      isLoading={isLoading}
+      error={error}
+      data={restaurantTableData}
       headers={RestaurantTableHeaders}
     />
   )
