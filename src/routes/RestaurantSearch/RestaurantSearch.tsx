@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import { useRestaurants } from 'api'
 import ContentWithSidebar, { Header, Sidebar, MainContent } from 'layouts/ContentWithSidebar'
@@ -7,7 +7,7 @@ import RestaurantSearchControls from './components/RestaurantSearchControls'
 import RestaurantSearchHeader from './components/RestaurantSearchHeader'
 import RestaurantTable from './components/RestaurantTable'
 
-const RestaurantSearch: React.FC = () => {
+const RestaurantSearch: FC = () => {
   const restaurantRes = useRestaurants()
 
   console.log({ restaurantRes })
@@ -21,7 +21,7 @@ const RestaurantSearch: React.FC = () => {
         <RestaurantSearchControls />
       </Sidebar>
       <MainContent>
-        <RestaurantTable />
+        <RestaurantTable {...restaurantRes} />
       </MainContent>
     </ContentWithSidebar>
   )

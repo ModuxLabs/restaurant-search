@@ -24,7 +24,7 @@ interface Restaurant extends RestaurantBase {
   genre: string
 }
 
-interface FormattedRestaurant extends RestaurantBase {
+export interface FormattedRestaurant extends RestaurantBase {
   tags: string[],
   genre: string[]
 }
@@ -38,7 +38,7 @@ const formatRestaurantData = (restaurantData: Restaurant[]): FormattedRestaurant
 )
 
 export const useRestaurants = (options: HookOptions = {}) => (
-  useFetch(endpoint, {
+  useFetch<FormattedRestaurant[]>(endpoint, {
     headers: { Authorization: apiKey },
     method: 'GET',
     formatter: createFormatter<Restaurant[], FormattedRestaurant[]>(formatRestaurantData),

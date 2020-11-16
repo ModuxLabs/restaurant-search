@@ -6,7 +6,7 @@ import Col from 'react-bootstrap/Col'
 import createLayout, { LayoutComp } from 'hocs/createLayout'
 
 export const Header: FC = ({ children }) => (
-  <header style={{ background: 'red' }}>
+  <header style={{ background: 'gainsboro' }}>
     <Container>
       <Row>
         <Col>
@@ -24,7 +24,7 @@ export const Sidebar: FC = ({ children }) => (
 )
 
 export const MainContent: FC = ({ children }) => (
-  <Col as='main' sm={9} style={{ background: 'green' }}>
+  <Col as='main' sm={9}>
     {children}
   </Col>
 )
