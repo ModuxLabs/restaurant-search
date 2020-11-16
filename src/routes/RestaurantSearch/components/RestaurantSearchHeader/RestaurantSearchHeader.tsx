@@ -1,7 +1,7 @@
 import React from 'react'
 
 const RestaurantSearchHeader: React.FC = () => (
-  <p>RestaurantSearchHeader</p>
+  <h1>Restaurant Search</h1>
 )
 
 export default RestaurantSearchHeader

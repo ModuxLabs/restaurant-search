@@ -31,6 +31,7 @@ module.exports = {
     '@typescript-eslint'
   ],
   rules: {
-    'no-unused-vars': "off" // throws false positives on imported types
+    'no-unused-vars': "off", // throws false positives on imported types
+    'react/prop-types': "off"
   }
 }
