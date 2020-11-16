@@ -1,0 +1,7 @@
+.inline-error--root {
+    color: indianred;
+}
+
+.inline-error--icon {
+    margin-top: -3px
+}

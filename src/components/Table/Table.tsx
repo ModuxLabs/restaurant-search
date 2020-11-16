@@ -2,8 +2,10 @@ import './Table.styles.css'
 
 import React, { FC, useState } from 'react'
 import ClampLines from 'react-clamp-lines'
+import Skeleton from 'react-loading-skeleton'
 import BaseTable from 'react-bootstrap/Table'
 import Pagination from 'react-bootstrap/Pagination'
+import InlineError from '../InlineError'
 
 interface TableHeaderEnum {
   [key: string]: string
@@ -31,7 +33,7 @@ type TableProps = {
 const Table: FC<TableProps> = baseProps => {
   const props = { ...defaultProps, ...baseProps }
   const [currentPage, setCurrentPage] = useState(1)
-  const shouldRenderPagination = props.data.length > props.pageSize
+  const shouldRenderPagination = props.data.length > props.pageSize && !props.error
   const currentPageData = props.data.slice((currentPage - 1) * props.pageSize, currentPage * props.pageSize)
 
   return (
@@ -50,9 +52,21 @@ const Table: FC<TableProps> = baseProps => {
         </thead>
         <tbody>
           {props.isLoading ? (
+            <>
+              {Array.from({ length: props.pageSize }).map((_, i) => (
+                <tr key={i}>
+                  {Object.keys(props.headers).map(headerKey => (
+                    <td key={headerKey}>
+                      <Skeleton />
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </>
+          ) : props.error ? (
             <tr>
               <td colSpan={Object.keys(props.headers).length}>
-                Table is loading
+                <InlineError error={props.error} />
               </td>
             </tr>
           ) : (

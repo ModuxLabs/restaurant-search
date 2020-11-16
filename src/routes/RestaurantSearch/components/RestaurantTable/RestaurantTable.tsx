@@ -17,13 +17,15 @@ interface RestaurantTableProps {
   error?: any
 }
 
-const useRestaurantTableData = (restaurants: FormattedRestaurant[] = []) => useMemo<Restaurant[]>(() => (
-  restaurants.map(restaurant => ({
-    ...restaurant,
-    genre: restaurant.genre.join(', '),
-    tags: restaurant.tags.join((', '))
-  }))
-), [restaurants])
+const useRestaurantTableData = (restaurants: FormattedRestaurant[] = []) => (
+  useMemo<Restaurant[]>(() => (
+    restaurants.map(restaurant => ({
+      ...restaurant,
+      genre: restaurant.genre.join(', '),
+      tags: restaurant.tags.join((', '))
+    }))
+  ), [restaurants])
+)
 
 const RestaurantTable: FC<RestaurantTableProps> = ({ data, isLoading, error }) => {
   const restaurantTableData = useRestaurantTableData(data)
