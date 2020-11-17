@@ -37,6 +37,7 @@ const RestaurantTable: FC<RestaurantTableProps> = ({ data, isLoading, error }) =
       error={error}
       data={restaurantTableData}
       headers={RestaurantTableHeaders}
+      noDataMsg='There are no restaurants that match your filters.'
     />
   )
 }

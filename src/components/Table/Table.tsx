@@ -14,21 +14,24 @@ interface TableHeaderEnum {
 
 type DefaultProps = {
   pageSize: number,
-  data: any[]
+  data: any[],
+  noDataMsg: string
 }
 
 const defaultProps: DefaultProps = {
   pageSize: 10,
-  data: []
+  data: [],
+  noDataMsg: 'No data found'
 }
 
 type TableProps = {
+  headers: TableHeaderEnum
   isLoading: boolean,
   columnWidths?: number[],
   pageSize?: number,
   error?: any,
   data?: any[],
-  headers: TableHeaderEnum
+  noDataMsg?: string
 }
 
 const Table: FC<TableProps> = baseProps => {
@@ -68,6 +71,12 @@ const Table: FC<TableProps> = baseProps => {
             <tr>
               <td colSpan={Object.keys(props.headers).length}>
                 <InlineError error={props.error} />
+              </td>
+            </tr>
+          ) : !props.data.length ? (
+            <tr>
+              <td colSpan={Object.keys(props.headers).length}>
+                <p className='m-0'>{props.noDataMsg}</p>
               </td>
             </tr>
           ) : (
