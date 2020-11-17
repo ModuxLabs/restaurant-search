@@ -2,13 +2,19 @@ import React, { FC } from 'react'
 import { useForm } from 'react-hook-form'
 
 import Form from 'components/Form'
+import { States } from 'constants/States'
+import { Genres } from 'constants/Genres'
 
 enum InputNames {
-  textSearch = 'textSearch'
+  textSearch = 'textSearch',
+  stateSelect = 'stateSelect',
+  genreSelect = 'genreSelect'
 }
 
 export type RestaurantSearchControlData = {
-  [InputNames.textSearch]: string
+  [InputNames.textSearch]: string,
+  [InputNames.stateSelect]: string,
+  [InputNames.genreSelect]: string,
 }
 
 type SearchControlProps = {
@@ -29,9 +35,23 @@ const RestaurantSearchControls: FC<SearchControlProps> = ({ onSubmit }) => {
       onSubmit={handleSubmit}
     >
       <Form.SearchInput
-        label='Search Restaurants'
+        placeholder='Search Restaurants'
         name={InputNames.textSearch}
         onClick={handleSubmit}
+      />
+      <Form.Select
+        className='mt-3'
+        label='Select State'
+        placeholder='All'
+        name={InputNames.stateSelect}
+        options={States}
+      />
+      <Form.Select
+        className='mt-3'
+        label='Select Cuisine Type'
+        placeholder='All'
+        name={InputNames.genreSelect}
+        options={Genres}
       />
     </Form>
   )

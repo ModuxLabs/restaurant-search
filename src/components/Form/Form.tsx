@@ -6,6 +6,7 @@ import { FormContext } from './Form.context'
 import Input from './Input'
 import FormControl from './FormControl'
 import SearchInput from './SearchInput'
+import Select from './Select'
 
 const IS_DEV = process.env.NODE_ENV === 'development'
 
@@ -20,7 +21,8 @@ type FormSubComponents = {
   Control: typeof FormBase.Control,
   Text: typeof FormBase.Text,
   Input: typeof Input,
-  SearchInput: typeof SearchInput
+  SearchInput: typeof SearchInput,
+  Select: typeof Select
 }
 
 const Form: FC<ExtendedFormProps> & FormSubComponents = ({ control, register, children, ...props }) => (
@@ -36,5 +38,6 @@ Form.Control = FormControl
 Form.Text = FormBase.Text
 Form.Input = Input
 Form.SearchInput = SearchInput
+Form.Select = Select
 
 export default Form

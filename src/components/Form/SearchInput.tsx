@@ -10,7 +10,7 @@ const SearchInput: FC<any> = props => (
     <FormControl
       name={props.name}
       type='text'
-      placeholder='Search Restaurants'
+      placeholder={props.placeholder}
     />
     <InputGroup.Append>
       <Button onClick={props.onClick}>
