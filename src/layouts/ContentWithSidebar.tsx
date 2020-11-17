@@ -18,7 +18,7 @@ export const Header: FC = ({ children }) => (
 )
 
 export const Sidebar: FC = ({ children }) => (
-  <Col as='aside' sm={3} style={{ background: 'blue' }}>
+  <Col as='aside' sm={3}>
     {children}
   </Col>
 )

@@ -5,7 +5,8 @@ import ClampLines from 'react-clamp-lines'
 import Skeleton from 'react-loading-skeleton'
 import BaseTable from 'react-bootstrap/Table'
 import Pagination from 'react-bootstrap/Pagination'
-import InlineError from '../InlineError'
+
+import InlineError from 'components/InlineError'
 
 interface TableHeaderEnum {
   [key: string]: string

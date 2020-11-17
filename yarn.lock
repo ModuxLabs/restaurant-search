@@ -1001,7 +1001,7 @@
     "@emotion/utils" "0.11.3"
     "@emotion/weak-memoize" "0.2.5"
 
-"@emotion/core@^10.0.22", "@emotion/core@^10.0.27":
+"@emotion/core@^10.0.22", "@emotion/core@^10.0.28":
   version "10.1.1"
   resolved "https://registry.yarnpkg.com/@emotion/core/-/core-10.1.1.tgz#c956c1365f2f2481960064bcb8c4732e5fb612c3"
   integrity sha512-ZMLG6qpXR8x031NXD8HJqugy/AZSkAuMxxqB46pmAR7ze47MhNJ56cdoX243QPZdGctrdfo+s08yZTiwaUcRKA==
@@ -1124,6 +1124,18 @@
   integrity sha512-tAag0jEcjwH+P2quUfipd7liWCNX2F8NvYjQp2wtInsZxnMlypdw0FtAOLxtvvkO+GSRRbmNi8m/5y42PQJYCQ==
   dependencies:
     "@hapi/hoek" "^8.3.0"
+
+"@hookform/devtools@^2.2.1":
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/@hookform/devtools/-/devtools-2.2.1.tgz#2d88414d375199e193c2611b770b194b7752a623"
+  integrity sha512-VQh4kqwUOpz9LCDzIP0aJ4qnD/ob8Gp09L8gDy++9XtL66z6g8kbCynUvBrJm4qbCNdH0M7/Spm3AUjJqUuFlA==
+  dependencies:
+    "@emotion/core" "^10.0.28"
+    "@emotion/styled" "^10.0.27"
+    "@types/lodash" "^4.14.152"
+    little-state-machine "^3.0.1"
+    lodash "^4.17.15"
+    react-simple-animate "^3.3.8"
 
 "@jest/console@^24.7.1", "@jest/console@^24.9.0":
   version "24.9.0"
@@ -1575,7 +1587,7 @@
   resolved "https://registry.yarnpkg.com/@types/json-schema/-/json-schema-7.0.3.tgz#bdfd69d61e464dcc81b25159c270d75a73c1a636"
   integrity sha512-Il2DtDVRGDcqjDtE+rF8iqg1CArehSK84HZJCT7AMITlyXRBpuPhqGLDQMowraqqu1coEaimg4ZOqggt6L6L+A==
 
-"@types/lodash@^4.14.149":
+"@types/lodash@^4.14.152":
   version "4.14.165"
   resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.165.tgz#74d55d947452e2de0742bad65270433b63a8c30f"
   integrity sha512-tjSSOTHhI5mCHTy/OOXYIhi2Wt1qcbHmuXD1Ha7q70CgI/I71afO4XtLb/cVexki1oVYchpul/TOuu3Arcdxrg==
@@ -6742,7 +6754,7 @@ listr@^0.14.3:
     p-map "^2.0.0"
     rxjs "^6.3.3"
 
-little-state-machine@^3.0.0:
+little-state-machine@^3.0.1:
   version "3.1.3"
   resolved "https://registry.yarnpkg.com/little-state-machine/-/little-state-machine-3.1.3.tgz#2faca935000c0bc21528e829fa729eb9bf38bfbc"
   integrity sha512-n3NAcFSFJl5eoOzoNxNYE6Xa3Y9/ln9068myXW8H81cClGiD4umQUDpXvjQzCjXZ0iO7IuxFNsjpMVdYTad17w==
@@ -9055,18 +9067,6 @@ react-fetch-hook@^1.8.3:
   resolved "https://registry.yarnpkg.com/react-fetch-hook/-/react-fetch-hook-1.8.3.tgz#29c7de4d0e71b17f7379b4372f34bdb2e00bfcd0"
   integrity sha512-1ae7T2biTjB7ZqyrseYHmuCp3GKRqqYxAKMi5YVlQQT6pRrnAbvkJhjKUnNw+fIJPnBtgOyNriK52RbFwJxMFw==
 
-react-hook-form-devtools@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/react-hook-form-devtools/-/react-hook-form-devtools-1.2.0.tgz#d675870426ab126575f59009265b2232ac6c1b9c"
-  integrity sha512-Pd2qqLrzY/y4Jpodvov74YSa9SWbl3hVE8xLfIUt+jkP0ay98m31hn8B1Z78abGm9Z+vEHRwmuFlt3Nv05QYCw==
-  dependencies:
-    "@emotion/core" "^10.0.27"
-    "@emotion/styled" "^10.0.27"
-    "@types/lodash" "^4.14.149"
-    little-state-machine "^3.0.0"
-    lodash "^4.17.15"
-    react-simple-animate "^3.3.6"
-
 react-hook-form@^6.11.1:
   version "6.11.1"
   resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-6.11.1.tgz#32ff518950c5f3cab5956b365e9aeed90daaf7f3"
@@ -9175,7 +9175,7 @@ react-scripts@3.3.0:
   optionalDependencies:
     fsevents "2.1.2"
 
-react-simple-animate@^3.3.6:
+react-simple-animate@^3.3.8:
   version "3.3.10"
   resolved "https://registry.yarnpkg.com/react-simple-animate/-/react-simple-animate-3.3.10.tgz#e2feee7f01afe913979063f2581eefa6a8dba617"
   integrity sha512-iPvhRFmpQecldbE3coA3fqYGCuYaYV3K7WiUtsHa2ql+PdBUCyKXj9+6CU7k8NlFnv37X9kmXC9QAcWNUhaL8g==

@@ -10,8 +10,6 @@ import RestaurantTable from './components/RestaurantTable'
 const RestaurantSearch: FC = () => {
   const restaurantRes = useRestaurants()
 
-  console.log({ restaurantRes })
-
   return (
     <ContentWithSidebar>
       <Header>

@@ -1,6 +1,7 @@
 import useFetch, { HookOptions } from 'react-fetch-hook'
 import createFormatter from 'utils/createFormatter'
 
+// NOTE: In a real production app I would store the api key and uri base in an .env file
 const apiKey = 'Api-Key q3MNxtfep8Gt'
 const endpoint = 'https://code-challenge.spectrumtoolbox.com/api/restaurants'
 
@@ -34,7 +35,7 @@ const formatRestaurantData = (restaurantData: Restaurant[]): FormattedRestaurant
     ...restaurant,
     tags: restaurant.tags.split(','),
     genre: restaurant.tags.split(',')
-  }))
+  })).sort((a, b) => a.name > b.name ? 1 : -1)
 )
 
 export const useRestaurants = (options: HookOptions = {}) => (
