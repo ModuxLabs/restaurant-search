@@ -3,8 +3,6 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
-import createLayout, { LayoutComp } from 'hocs/createLayout'
-
 export const Header: FC = ({ children }) => (
   <header className='mb-3' style={{ background: 'gainsboro' }}>
     <Container>
@@ -29,22 +27,18 @@ export const MainContent: FC = ({ children }) => (
   </Col>
 )
 
-const ContentWithSidebarBase: LayoutComp = ({ Child }) => (
-  <>
-    <Child render={Header} />
-    <Container>
-      <Row>
-        <Child render={Sidebar} />
-        <Child render={MainContent} />
-      </Row>
-    </Container>
-  </>
+export const Body: FC = ({ children }) => (
+  <Container>
+    <Row>
+      {children}
+    </Row>
+  </Container>
 )
 
-const ContentWithSidebar = createLayout(ContentWithSidebarBase)
-
-ContentWithSidebar.Header = Header
-ContentWithSidebar.Sidebar = Sidebar
-ContentWithSidebar.MainContent = MainContent
+const ContentWithSidebar: FC = ({ children }) => (
+  <>
+    {children}
+  </>
+)
 
 export default ContentWithSidebar

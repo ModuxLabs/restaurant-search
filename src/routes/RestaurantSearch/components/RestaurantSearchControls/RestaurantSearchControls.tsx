@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, useEffect, useRef } from 'react'
 import { useForm } from 'react-hook-form'
 
 import Form from 'components/Form'
@@ -22,11 +22,23 @@ type SearchControlProps = {
 }
 
 const RestaurantSearchControls: FC<SearchControlProps> = ({ onSubmit }) => {
-  const form = useForm<RestaurantSearchControlData>()
+  const prevSearch = useRef('')
+  const searchTouched = useRef(false)
+
+  const form = useForm<RestaurantSearchControlData>({ mode: 'onChange' })
+  const searchValue = form.watch(InputNames.textSearch)
 
   const handleSubmit = form.handleSubmit(formData => {
     onSubmit?.(formData)
   })
+
+  useEffect(() => {
+    searchTouched.current = searchTouched.current || Boolean(searchValue)
+    if (searchTouched.current && searchValue === '' && prevSearch.current !== '') {
+      handleSubmit()
+    }
+    prevSearch.current = searchValue
+  }, [searchValue, handleSubmit])
 
   return (
     <Form
@@ -45,6 +57,7 @@ const RestaurantSearchControls: FC<SearchControlProps> = ({ onSubmit }) => {
         placeholder='All'
         name={InputNames.stateSelect}
         options={States}
+        onChange={handleSubmit}
       />
       <Form.Select
         className='mt-3'
@@ -52,6 +65,7 @@ const RestaurantSearchControls: FC<SearchControlProps> = ({ onSubmit }) => {
         placeholder='All'
         name={InputNames.genreSelect}
         options={Genres}
+        onChange={handleSubmit}
       />
     </Form>
   )

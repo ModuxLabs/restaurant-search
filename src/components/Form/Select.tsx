@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, ChangeEvent } from 'react'
 import FormBase from 'react-bootstrap/Form'
 
 import BoundFormControl from './FormControl'
@@ -14,18 +14,19 @@ type SelectProps = {
   className?: string,
   label?: string,
   subText?: string
+  onChange?: (e: ChangeEvent) => any
 }
 
-const Select: FC<SelectProps> = props => (
-  <FormBase.Group className={props.className} controlId={props.name}>
-    {props.label && <FormBase.Label>{props.label}</FormBase.Label>}
-    <BoundFormControl name={props.name} as='select' custom>
-      {props.placeholder && <option value=''>{props.placeholder}</option>}
-      {Object.keys(props.options).map(optionKey => (
-        <option key={optionKey} value={optionKey}>{props.options[optionKey]}</option>
+const Select: FC<SelectProps> = ({ name, options, placeholder, className, label, subText, onChange }) => (
+  <FormBase.Group className={className} controlId={name}>
+    {label && <FormBase.Label>{label}</FormBase.Label>}
+    <BoundFormControl name={name} onChange={e => onChange?.(e)} as='select' custom>
+      {placeholder && <option value=''>{placeholder}</option>}
+      {Object.keys(options).map(optionKey => (
+        <option key={optionKey} value={options[optionKey]}>{options[optionKey]}</option>
       ))}
     </BoundFormControl>
-    {props.subText && <FormBase.Text>{props.subText}</FormBase.Text>}
+    {subText && <FormBase.Text>{subText}</FormBase.Text>}
   </FormBase.Group>
 )
 
